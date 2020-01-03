@@ -1,0 +1,82 @@
+.body,
+html {
+  height: 100vh;
+}
+.container {
+  width: 95%;
+  height: calc(100vh - 68px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(250px, auto);
+  grid-template-areas:
+    "hats hats hoodies hoodies sneakers sneakers"
+    "womens womens womens mens mens mens";
+  grid-gap: 20px;
+}
+
+.shop {
+  position: relative;
+  width: 100%;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.shop img {
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shop:hover img {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.hats {
+  grid-area: hats;
+}
+
+.hoodies {
+  grid-area: hoodies;
+}
+
+.sneakers {
+  grid-area: sneakers;
+}
+
+.womens {
+  grid-area: womens;
+}
+
+.mens {
+  grid-area: mens;
+}
+
+.shop-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ecf0f1;
+  text-align: center;
+  padding: 15px;
+}
+
+.link {
+  text-decoration: none;
+  color: #5d6d7e;
+  padding: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: block;
+  }
+
+  .shop {
+    margin: 20px 0;
+  }
+}

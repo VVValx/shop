@@ -1,38 +1,60 @@
-.App {
+.shop-container {
+  width: 95%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: minmax(350px, auto);
+  grid-gap: 20px;
+}
+
+.shop-item {
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.shop-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.shop-item:hover img {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.shop-icons {
+  position: absolute;
+  color: #16a085;
+  opacity: 0;
+  transition: all 0.5s;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.shop-item:hover .shop-icons {
+  opacity: 1;
+}
+
+.top-icons {
+  top: 2px;
+}
+
+.left-icons {
+  left: 5px;
+}
+
+.right-icons {
+  right: 5px;
+}
+
+.bottom-icons {
+  width: 100%;
+  bottom: 0px;
+  color: #ecf0f1;
+  background: #34495e;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
