@@ -8,6 +8,11 @@ import TopMenu from "./components/menu/TopMenu";
 import NotFound from "./components/NotFound";
 import CartContext from "./contexts/CartContext";
 import HatsDetail from "./components/hats/HatsDetail";
+import Hoodies from "./components/hoodies/Hoodies";
+import Sneakers from "./components/sneakers/Sneakers";
+import Womens from "./components/womens/Womens";
+import Mens from "./components/mens/Mens";
+import Register from "./components/userAuth/Register";
 
 function App() {
   const [shoppingCart, setCart] = useState([]);
@@ -50,6 +55,11 @@ function App() {
       <TopMenu />
       <Switch>
         <Route path="/cart" exact component={Cart} />
+        <Route path="/register" exact component={Register} />
+        <Route path="/mens" exact component={Mens} />
+        <Route path="/womens" exact component={Womens} />
+        <Route path="/sneakers" exact component={Sneakers} />
+        <Route path="/hoodies" exact component={Hoodies} />
         <Route path="/hats/:itemId" exact component={HatsDetail} />
         <Route path="/hats" exact component={Hats} />
         <Route path="/" exact component={Home} />

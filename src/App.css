@@ -1,9 +1,23 @@
+body {
+  overflow-x: hidden;
+}
 .shop-container {
   width: 95%;
   margin: 0 auto;
+}
+
+.shop-header {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #ecf0f1;
+  background: #34495e;
+}
+
+.shop-render {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-rows: minmax(350px, auto);
+  grid-auto-rows: minmax(350px, 400px);
   grid-gap: 20px;
 }
 
@@ -55,6 +69,10 @@
   width: 100%;
   bottom: 0px;
   color: #ecf0f1;
-  background: #34495e;
+
   text-align: center;
+}
+
+.bottom-name {
+  background: #34495e;
 }

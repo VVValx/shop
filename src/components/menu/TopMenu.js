@@ -16,12 +16,23 @@ function TopMenu() {
         </li>
         <li>
           <Link className="link menu" to="/order">
-            Order
+            Shop
           </Link>
         </li>
       </ul>
 
       <ul className="topMenu-right">
+        <li>
+          <Link className="link menu" to="/register">
+            <i className="fa fa-user-plus"></i>Signup
+          </Link>
+        </li>
+        <li className="icon">
+          <Link className="link menu" to="/favourites">
+            <i className="fa fa-heart"></i>
+            <span className="icon-count">0</span>
+          </Link>
+        </li>
         <li className="icon">
           <Link className="link menu" to="/cart">
             <i className="fa fa-shopping-cart"></i>
@@ -34,7 +45,7 @@ function TopMenu() {
             {cart.map(c => (
               <div className=" cart-menu-item" key={c.id}>
                 <div className=" img">
-                  <img src={c.img} alt={c.title} />
+                  <img src={c.imageUrl} alt={c.name} />
                 </div>
 
                 <div className=" price">{c.price}</div>

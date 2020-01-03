@@ -10,12 +10,14 @@ function Cart() {
   return (
     <div className="cart-container">
       {cart.length < 1 ? (
-        <h1>You have no items in your cart</h1>
+        <header className="shop-header">
+          <h1>You have no items in your cart</h1>
+        </header>
       ) : (
         cart.map(c => (
           <div className="cart-item" key={c.id}>
             <div className="cart-list img">
-              <img src={c.img} alt={c.title} />
+              <img src={c.imageUrl} alt={c.name} />
             </div>
 
             <div className="cart-list price">{c.price}</div>

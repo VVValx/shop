@@ -3,7 +3,6 @@
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
-  background: #d0d3d4;
 }
 
 .topMenu ul {
@@ -31,7 +30,7 @@
 .icon-count {
   position: absolute;
   top: 17px;
-  left: 10px;
+  left: 9px;
   font-size: 8px;
   background: #2e86c1;
   color: #ecf0f1;
@@ -40,15 +39,17 @@
 }
 
 .cart-menu {
-  display: none;
+  display: grid;
+  grid-gap: 5px;
   width: 300px;
   background: #d0d3d4;
   position: absolute;
-  top: 40px;
-  right: 12px;
+  top: 60px;
+  right: -500px;
   z-index: 1;
   font-size: 14px;
   color: #ecf0f1;
+  padding: 0 5px;
 }
 
 .cart-menu-item {
@@ -64,8 +65,8 @@
 }
 
 .icon:hover .cart-menu {
-  display: grid;
-  grid-gap: 5px;
+  animation: cart 0.3s;
+  animation-fill-mode: forwards;
 }
 
 .img {
@@ -97,4 +98,14 @@
   font-size: 9px;
   font-weight: bold;
   cursor: pointer;
+}
+
+@keyframes cart {
+  from {
+    right: -500px;
+  }
+
+  to {
+    right: 12px;
+  }
 }
