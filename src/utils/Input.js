@@ -1,9 +1,17 @@
 import React from "react";
 
-export default function Input() {
+export default function Input({ type, name, value, onChange, error }) {
   return (
     <div className="form-input">
-      <input type="text" name="name" placeholder="name" />
+      <input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={name}
+      />
+
+      {error[name] && <p className="error">{error[name]}</p>}
     </div>
   );
 }

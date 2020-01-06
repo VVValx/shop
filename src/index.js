@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import "react-toastify/dist/ReactToastify.css";
 import "font-awesome/css/font-awesome.css";
 ReactDOM.render(
   <Router>

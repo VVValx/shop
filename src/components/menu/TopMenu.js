@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import CartContext from "../../contexts/CartContext";
 import "./TopMenu.css";
@@ -6,6 +7,14 @@ import "./TopMenu.css";
 function TopMenu() {
   const cart = useContext(CartContext).shoppingCart;
   const removeCart = useContext(CartContext).removeCart;
+
+  const cartRemove = c => {
+    removeCart(c);
+    toast(`${c.name} removed from cart`, {
+      autoClose: 3000,
+      position: toast.POSITION.TOP_LEFT
+    });
+  };
   return (
     <nav className="topMenu">
       <ul className="topMenu-left">
@@ -53,7 +62,7 @@ function TopMenu() {
                 <div className=" price">{(c.price * c.count).toFixed(2)}</div>
                 <button
                   className="cart-menu-remove"
-                  onClick={() => removeCart(c)}
+                  onClick={() => cartRemove(c)}
                 >
                   x
                 </button>

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import "./App.css";
+import { ToastContainer } from "react-toastify";
 import Cart from "./components/cart/Cart";
 import Hats from "./components/hats/Hats";
 import Home from "./components/home/Home";
@@ -13,9 +13,15 @@ import Sneakers from "./components/sneakers/Sneakers";
 import Womens from "./components/womens/Womens";
 import Mens from "./components/mens/Mens";
 import Register from "./components/userAuth/Register";
+import "./App.css";
 
 function App() {
-  const [shoppingCart, setCart] = useState([]);
+  const myCart = JSON.parse(localStorage.getItem("myCart"));
+  const [shoppingCart, setCart] = useState(myCart || []);
+
+  useEffect(() => {
+    localStorage.setItem("myCart", JSON.stringify(shoppingCart));
+  }, [shoppingCart]);
 
   const setShoppingCart = (cart, n) => {
     const shopCart = [...shoppingCart];
@@ -52,6 +58,7 @@ function App() {
 
   return (
     <CartContext.Provider value={state}>
+      <ToastContainer />
       <TopMenu />
       <Switch>
         <Route path="/cart" exact component={Cart} />

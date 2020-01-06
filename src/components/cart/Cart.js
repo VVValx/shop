@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 import CartContext from "../../contexts/CartContext";
 import "./Cart.css";
 
@@ -7,6 +8,13 @@ function Cart() {
   const setShoppingCart = useContext(CartContext).setShoppingCart;
   const removeCart = useContext(CartContext).removeCart;
 
+  const cartRemove = c => {
+    removeCart(c);
+    toast(`${c.name} removed from cart`, {
+      autoClose: 2000,
+      position: toast.POSITION.TOP_LEFT
+    });
+  };
   return (
     <div className="cart-container">
       {cart.length < 1 ? (
@@ -41,7 +49,7 @@ function Cart() {
               {(c.price * c.count).toFixed(2)}
             </div>
 
-            <button className="cartRemove" onClick={() => removeCart(c)}>
+            <button className="cartRemove" onClick={() => cartRemove(c)}>
               x
             </button>
           </div>

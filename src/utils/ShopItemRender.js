@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { withRouter } from "react-router-dom";
+import { toast } from "react-toastify";
 import CartContext from "../contexts/CartContext";
 
 function ShopItemRender({ shopItem, match, history }) {
   const cart = useContext(CartContext).setShoppingCart;
   const addToCart = item => {
     cart(item);
+    toast(`${item.name} added to cart`, { autoClose: 3000 });
   };
   return (
     <div className="shop-container">
