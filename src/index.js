@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import "./index.css";
+// import { Provider } from "react-redux";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 import "font-awesome/css/font-awesome.css";
+
 ReactDOM.render(
   <Router>
     <App />

@@ -13,6 +13,7 @@ import Sneakers from "./components/sneakers/Sneakers";
 import Womens from "./components/womens/Womens";
 import Mens from "./components/mens/Mens";
 import Register from "./components/userAuth/Register";
+import Login from "./components/userAuth/Login";
 import "./App.css";
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
       <TopMenu />
       <Switch>
         <Route path="/cart" exact component={Cart} />
+        <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
         <Route path="/mens" exact component={Mens} />
         <Route path="/womens" exact component={Womens} />

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Input({ type, name, value, onChange, error }) {
+function Input({ type, name, value, onChange }) {
   return (
     <div className="form-input">
       <input
@@ -10,8 +10,6 @@ function Input({ type, name, value, onChange, error }) {
         onChange={onChange}
         placeholder={name}
       />
-
-      {error[name] && <p className="error">{error[name]}</p>}
     </div>
   );
 }

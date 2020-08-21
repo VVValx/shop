@@ -1,73 +1,67 @@
 import React, { useContext } from "react";
-import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
+import RenderLink from "./RenderLink";
+import RenderIcon from "./RenderIcon";
 import CartContext from "../../contexts/CartContext";
+import Button from "../../utils/RenderButton";
 import "./TopMenu.css";
+import CartItem from "../../utils/CartItem";
 
 function TopMenu() {
   const cart = useContext(CartContext).shoppingCart;
-  const removeCart = useContext(CartContext).removeCart;
 
-  const cartRemove = c => {
-    removeCart(c);
-    toast(`${c.name} removed from cart`, {
-      autoClose: 3000,
-      position: toast.POSITION.TOP_LEFT
-    });
+  const total = () => {
+    return cart.map(c => c.count).reduce((t, a) => t + a, 0);
   };
+
   return (
     <nav className="topMenu">
       <ul className="topMenu-left">
-        <li>
-          <Link className="link menu" to="/">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link className="link menu" to="/order">
-            Shop
-          </Link>
+        <RenderLink to="/">
+          <RenderIcon className="fa fa-home" />
+        </RenderLink>
+        <li className="shop-li">
+          <RenderLink label="Shop" to="/shop" />
+
+          <div className="shop-dropdown">
+            <RenderLink label="Hats" to="/hats" />
+            <RenderLink label="Hoodies" to="/hoodies" />
+            <RenderLink label="Sneakers" to="/sneakers" />
+            <RenderLink label="Womens" to="/womens" />
+            <RenderLink label="Mens" to="/mens" />
+          </div>
         </li>
       </ul>
 
       <ul className="topMenu-right">
-        <li>
-          <Link className="link menu" to="/register">
-            <i className="fa fa-user-plus"></i>Signup
-          </Link>
-        </li>
+        <RenderLink to="/register">
+          <Button className="btn btn-round btn-red" label="Register" />
+        </RenderLink>
+
+        <RenderLink to="/login">
+          <Button className="btn btn-round btn-green" label="Login" />
+        </RenderLink>
+
         <li className="icon">
-          <Link className="link menu" to="/favourites">
-            <i className="fa fa-heart"></i>
-            <span className="icon-count">0</span>
-          </Link>
+          <RenderLink to="/favourites">
+            <RenderIcon
+              label={0}
+              className="fa fa-heart"
+              spanClass="icon-count"
+            />
+          </RenderLink>
         </li>
+
         <li className="icon">
-          <Link className="link menu" to="/cart">
-            <i className="fa fa-shopping-cart"></i>
-            <span className="icon-count">
-              {cart.map(c => c.count).reduce((t, a) => t + a, 0)}
-            </span>
-          </Link>
+          <RenderLink to="/cart">
+            <RenderIcon
+              className="fa fa-shopping-cart"
+              spanClass="icon-count"
+              label={total()}
+            />
+          </RenderLink>
 
           <div className="cart-menu">
-            {cart.map(c => (
-              <div className=" cart-menu-item" key={c.id}>
-                <div className=" img">
-                  <img src={c.imageUrl} alt={c.name} />
-                </div>
-
-                <div className=" price">{c.price}</div>
-
-                <div className=" price">{(c.price * c.count).toFixed(2)}</div>
-                <button
-                  className="cart-menu-remove"
-                  onClick={() => cartRemove(c)}
-                >
-                  x
-                </button>
-              </div>
-            ))}
+            <CartItem />
           </div>
         </li>
       </ul>

@@ -7,7 +7,10 @@ function ShopItemRender({ shopItem, match, history }) {
   const cart = useContext(CartContext).setShoppingCart;
   const addToCart = item => {
     cart(item);
-    toast(`${item.name} added to cart`, { autoClose: 3000 });
+    toast(`${item.name} added to cart`, {
+      autoClose: 1500,
+      position: toast.POSITION.TOP_LEFT
+    });
   };
   return (
     <div className="shop-container">

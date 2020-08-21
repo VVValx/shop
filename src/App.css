@@ -17,7 +17,7 @@ body {
 .shop-render {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-rows: minmax(350px, 400px);
+  grid-auto-rows: minmax(350px, auto);
   grid-gap: 20px;
 }
 
@@ -75,4 +75,31 @@ body {
 
 .bottom-name {
   background: #34495e;
+}
+
+.btn {
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.btn-round {
+  border-radius: 5px;
+}
+
+.btn-red {
+  background: #e74c3c;
+  color: #ecf0f1;
+}
+.btn-green {
+  background: #1abc9c;
+  color: #ecf0f1;
+}
+.btn-teal {
+  background: #2e86c1;
+  color: #ecf0f1;
+}
+
+.block {
+  width: 100%;
 }
